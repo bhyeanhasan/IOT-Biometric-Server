@@ -7,3 +7,9 @@ class Customer(models.Model):
     session = models.CharField(max_length=50)
     fingerprint = models.CharField(max_length=10)
     balance = models.IntegerField()
+
+
+class Machine(models.Model):
+    machineId= models.IntegerField(default=0)
+    name = models.CharField(max_length=50)
+    state = models.IntegerField(default=0)
