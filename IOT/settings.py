@@ -8,7 +8,7 @@ SECRET_KEY = 'django-insecure-y0oe7p%5y03665t$$v5##nv08-79!t3ey1vlovid5&p7g!s6yg
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://iot-biometric-server-production.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['*']
 
 # Application definition
 
@@ -106,10 +106,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
