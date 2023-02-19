@@ -8,6 +8,7 @@ SECRET_KEY = 'django-insecure-y0oe7p%5y03665t$$v5##nv08-79!t3ey1vlovid5&p7g!s6yg
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://iot-biometric-server-production.up.railway.app/']
 
 # Application definition
 
