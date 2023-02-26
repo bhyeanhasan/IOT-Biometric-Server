@@ -16,13 +16,13 @@ SoftwareSerial mySerial(Finger_Rx, Finger_Tx);
 Adafruit_Fingerprint finger = Adafruit_Fingerprint(&mySerial);
 //************************************************************************
 /* Set these to your desired credentials. */
-const char *ssid = "DIR";  //ENTER YOUR WIFI SETTINGS
-const char *password = "csecsecse1";
+const char *ssid = "cse16";  //ENTER YOUR WIFI SETTINGS
+const char *password = "285028502";
 //************************************************************************
 String postData ; // post array that will be send to the website
 int FingerID = 0;     // The Fingerprint ID from the scanner
 uint8_t id;
-String serverName = "http://192.168.0.105:8000/customers/";
+String serverName = "http://192.168.43.62:8000/customers/";
 //*************************Biometric Icons*********************************
 
 void setup() {

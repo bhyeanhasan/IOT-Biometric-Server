@@ -1,14 +1,14 @@
-<!doctype html>
+{% load static %}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>register</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Customers</title>
 </head>
 <body>
 
@@ -20,19 +20,20 @@
 
         <div class="col-md-8">
 
-            <form class="forms" action="profile" method="post">
+            <form class="forms" action="register" method="post">
                 {% csrf_token %}
 
-                <input type="text" name="name" class="form-control" value="{{ profile.name }}">
-                <input type="text" name="PSTU_ID" class="form-control" value="{{ profile.PSTU_ID }}">
-                <input type="text" name="session" class="form-control" value="{{ profile.session }}">
+                <input type="text" name="username" class="form-control" placeholder="Username">
 
+                <input type="text" name="email" class="form-control" placeholder="Email">
 
-                <button style="margin-left: 42%;" type="submit" class="btn btn-primary">Update Profile</button>
+                <input type="text" name="pass1" class="form-control" placeholder="Password">
+
+                <input type="text" name="pass2" class="form-control" placeholder="Confirm Password">
+
+                <button style="margin-left: 45%;" type="submit" class="btn btn-primary">Sign in</button>
 
             </form>
-
-
 
         </div>
 
@@ -55,7 +56,7 @@
             <div class="message">
 
                 {% for message in messages %}
-                    <h2>{{ message }}</h2>
+                <h2>{{ message }}</h2>
                 {% endfor %}
 
             </div>
@@ -68,6 +69,10 @@
     </div>
 
 </section>
+
+
+
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

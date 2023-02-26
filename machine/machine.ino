@@ -2,16 +2,15 @@
 #include <WiFiClient.h>
 #include <ESP8266HTTPClient.h>
 #include <ArduinoJson.h>
-#include <Servo.h>
 
-Servo servo;
 
-const char* wifiName = "DIR";
-const char* wifiPass = "csecsecse1";
+
+const char* wifiName = "cse16";
+const char* wifiPass = "285028502";
 String state = "-100";
-
+int relay = 2;
 //Web Server address to read/write from
-String serverName = "http://192.168.0.105:8000/";
+String serverName = "http://192.168.43.62:8000/";
 
 void setup() {
 
@@ -19,8 +18,10 @@ void setup() {
   delay(10);
   Serial.println();
   
-  servo.attach(2); //D4
-  servo.write(0);
+  pinMode(relay, OUTPUT); //D4
+  digitalWrite(relay, HIGH);
+
+
   
   Serial.print("Connecting to ");
   Serial.println(wifiName);
@@ -89,17 +90,14 @@ void loop() {
   {
     Serial.println("on machine");
 
-    servo.write(0);
 
-    delay(1000);
-    
-    servo.write(180);
+    digitalWrite(relay, LOW);
 
-    delay(1000);
-    
-    servo.write(0);
+    delay(6000);
 
-    delay(1000);
+    digitalWrite(relay, HIGH);
+
+
 
     String link = serverName + "machine/0/";
     Serial.println(link);
