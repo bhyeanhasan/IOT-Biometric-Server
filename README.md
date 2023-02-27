@@ -7,9 +7,8 @@ d6 - ash
 ## for capturing the raw fingerprint data to the PC :
 
 
-* import this library to IDE
+* import this *library to IDE
 * then upload image_to_pc.ino to the board
-
 * and finally run the getimage.py
 
-source: https://github.com/brianrho/FPM
+*source: https://github.com/brianrho/FPM
