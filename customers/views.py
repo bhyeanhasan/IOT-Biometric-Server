@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
-from .models import Customer, Machine,Order
+from .models import Customer, Machine, Order
 
 
 def index(request):
@@ -15,14 +15,17 @@ def index(request):
 
 def customers(request, fingerprint):
     customer = Customer.objects.get(fingerprint=fingerprint)
-    customer.balance = customer.balance - 50
-    customer.save()
+    if customer.balance > 50:
+        customer.balance = customer.balance - 50
+        customer.save()
+    else:
+        return redirect('/')
 
     machine = Machine.objects.get(machineId=0)
     machine.state = 1
     machine.save()
 
-    order =  Order()
+    order = Order()
     order.customer = customer
     order.time = datetime.now()
     order.save()
