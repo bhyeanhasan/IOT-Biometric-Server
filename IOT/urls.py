@@ -3,6 +3,7 @@ from django.urls import include, path
 
 urlpatterns = [
     path('', include('customers.urls')),
+    path('finger/', include('app_fingerprint.urls')),
     path('admin/', admin.site.urls),
 ]
 
