@@ -31,6 +31,7 @@ for file in os.listdir("finger_prints/"):
         if abs(p.distance - q.distance) < 10:
             match_points.append(p)
 
+
     keypoints = 0
     if len(keypoints_1) <= len(keypoints_2):
         keypoints = len(keypoints_1)
