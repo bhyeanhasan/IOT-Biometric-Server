@@ -10,7 +10,7 @@ READ_LEN = int(WIDTH * HEIGHT / 2)
 DEPTH = 8
 HEADER_SZ = 54
 
-portSettings = ['', 0]
+portSettings = ['com4', 57600]
 
 
 def assembleHeader(width, height, depth, cTable=False):
