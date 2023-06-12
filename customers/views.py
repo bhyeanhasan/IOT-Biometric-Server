@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from .models import Customer, Machine, Order
+from django.core.cache import cache # This is the memcache cache.
 
 
 def index(request):
@@ -94,14 +95,17 @@ def logout(request):
 
 @login_required
 def profile(request):
+    cache.clear()
     if request.method == 'GET':
         try:
             profile = Customer.objects.get(user=request.user)
-            return render(request, 'profile.html', {'profile': profile})
+            img = str(request.user.username) + '.bmp'
+            return render(request, 'profile.html', {'profile': profile, 'img': img})
         except:
             profile = Customer(user=request.user)
+            img = str(request.user.username) + '.bmp'
             profile.save()
-            return render(request, 'profile.html', {'profile': profile})
+            return render(request, 'profile.html', {'profile': profile, 'img': img})
     else:
         profile = Customer.objects.get(user=request.user)
 
