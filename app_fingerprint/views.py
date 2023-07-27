@@ -20,7 +20,7 @@ def takeFingerPrint(request):
     READ_LEN = int(WIDTH * HEIGHT / 2)
     DEPTH = 8
     HEADER_SZ = 54
-    portSettings = ['COM3', 57600]
+    portSettings = ['COM9', 57600]
 
     def assembleHeader(width, height, depth, cTable=False):
         header = bytearray(HEADER_SZ)
@@ -120,7 +120,7 @@ def changeFingerPrint(request):
     READ_LEN = int(WIDTH * HEIGHT / 2)
     DEPTH = 8
     HEADER_SZ = 54
-    portSettings = ['COM3', 57600]
+    portSettings = ['COM9', 57600]
 
     def assembleHeader(width, height, depth, cTable=False):
         header = bytearray(HEADER_SZ)
